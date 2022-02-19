@@ -4,4 +4,20 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav 
+      ul.topNav
+        li 
+          a search
+        li 
+          a info
+      ul 
+        li 
+          a ACCESSORIES
+        li 
+          a COMPONENTS
+        li 
+          a BIKES
+        li.logo
+          img(src='../images/wabi-logo.png')
+    main 
+      block content
