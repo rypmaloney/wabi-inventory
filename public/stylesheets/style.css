@@ -15,10 +15,10 @@ main{
   padding: 50px ;
 }
 
-.logo  {
+.logo, .logo a  {
   float: left;
   color: white;
-  padding: 7px;
+  padding: 5px;
   margin-left: 30px
 
 }
@@ -42,6 +42,7 @@ ul {
   background-color: black;
   border-bottom: 1px solid #cf1e34;
 }
+
 
 .topNav {
   background-color: #cf1e34;

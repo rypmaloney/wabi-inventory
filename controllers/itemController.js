@@ -18,13 +18,30 @@ exports.index = function(req, res) {
 };
 
 
-
-
-
-
-
-exports.item_list = function(req, res) {
+exports.item_list = function(req, res, next) {
+    Item.find({}, 'name description')
+      .sort({name : 1})
+      .populate('category')
+      .exec(function (err, list_items) {
+        if (err) { return next(err); }
         //Successful, so render
-        res.render('item_list', { title: 'Item List'});
-      
-}
+        res.render('item_list', { title: 'List of All Items', item_list: list_items });
+      });
+  
+  };
+
+// Display detail page for a specific book.
+exports.item_detail = function(req, res, next) {
+
+            Item.findById(req.params.id)
+              .populate('category')
+              .exec(function (err, item) {
+            if (err) { return next(err); }
+            //Successful, so render
+           
+
+        res.render('item_detail', { title: item.name, item: item } );
+              })
+            }
+
+

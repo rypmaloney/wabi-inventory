@@ -15,11 +15,11 @@ html
         div 
           a 
             img(src='../images/mag.png').srch
-      ul
+      ul.list
         li 
           a ALL CATEGORIES
         li 
-          a ALL ITEMS 
+          a(href="/inventory/items") ALL ITEMS 
         li 
           a ACCESSORIES
         li 
@@ -27,6 +27,8 @@ html
         li 
           a BIKES
         li.logo
-          img(src='../images/wabi-logo.png')
+          a(href='/')
+            img(src='../images/wabi-logo.png')
+          
     main 
       block content
