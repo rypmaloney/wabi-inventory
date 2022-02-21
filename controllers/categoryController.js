@@ -45,4 +45,28 @@ exports.category_detail = function (req, res, next) {
     });
 };
 
+//Display all categories for each of the three main types 
+exports.type_category = function (req, res, next) {
+    let type = capitalizeFirstLetter(req.params.id) 
+    
+    Category.find({type: type}, "name")
+        .sort({ name: 1 })
+        .exec(function (err, list_categories) {
+            if (err) {
+                return next(err);
+            }
+            //Successful, so render
+            res.render("type_detail", {
+                title: `List of Categories in ${req.params.id}`,
+                category_list: list_categories,
+            });
+        });
+};
 
+
+
+
+//UTILITY FUNCTION
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
