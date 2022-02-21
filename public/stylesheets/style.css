@@ -34,7 +34,7 @@ main{
   padding-right:15px;
 }
 
-ul {
+ul.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -56,11 +56,11 @@ ul {
 .topNav p{
   font-size: 12px;
 }
-li {
+li.nav {
   float: right;
 }
 
-li a {
+li.nav a {
   display: block;
   color: white;
   text-align: center;
@@ -69,12 +69,35 @@ li a {
   cursor: pointer;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
+li.nav a:hover {
   color: #cf1e34;
 }
 
+.detail{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+@media (max-width: 950px) {
+  .detail{
+    padding: 25px;
+
+  }
+  
+  li.nav a {
+   font-size: 13px;
+  }
+}
+
 @media (max-width: 600px) {
+
+  .detail{
+    padding: 5px;
+
+  }
   .topNav p{
    display: none;
   }
@@ -83,7 +106,7 @@ li a:hover {
     max-width: 7em;
   
   }
-  li a {
+  li.nav a {
     padding: 10px;
   }
 }

@@ -10,25 +10,27 @@ html
       div.topNav
         div 
           a 
-            img(src='../images/prfl.png').prfl
+            img(src='/images/prfl.png').prfl
         p WE ARE OPEN. READ MORE ABOUT OUR CURRENT ORDERING STATUS AND INVENTORY BELOW
         div 
           a 
-            img(src='../images/mag.png').srch
-      ul.list
-        li 
-          a ALL CATEGORIES
-        li 
+            img(src='/images/mag.png').srch
+      ul.nav
+        li.nav 
+          a(href="/inventory/category") ALL CATEGORIES
+        li.nav 
           a(href="/inventory/items") ALL ITEMS 
-        li 
+        li.nav
           a ACCESSORIES
-        li 
+        li.nav 
           a COMPONENTS
-        li 
+        li.nav
           a BIKES
         li.logo
           a(href='/')
-            img(src='../images/wabi-logo.png')
+            img(src='/images/wabi-logo.png')
+
+
           
     main 
       block content

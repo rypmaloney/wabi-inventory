@@ -58,7 +58,7 @@ var category_controller = require('../controllers/categoryController');
     //router.post('/category/:id/update', category_controller.category_update_post);
 
     // GET request for one category.
-    //router.get('/category/:id', category_controller.category_detail);
+    router.get('/category/:id', category_controller.category_detail);
 
     // GET request for list of all categories.
     router.get('/category', category_controller.category_list);

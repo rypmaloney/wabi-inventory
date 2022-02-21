@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.detail
+    h1=title 
+    p #{category.type}
+    p=category.description
+
+    ul
+        each item in items_in_category
+            li
+                a(href=item.url) #{item.name}
+                |  ($#{item.price}.00)
+
+        else
+            p There are no items.

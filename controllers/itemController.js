@@ -22,6 +22,8 @@ exports.index = function (req, res) {
     );
 };
 
+
+//list all items
 exports.item_list = function (req, res, next) {
     Item.find({}, "name description")
         .sort({ name: 1 })
