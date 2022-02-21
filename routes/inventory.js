@@ -34,7 +34,7 @@ var category_controller = require('../controllers/categoryController');
     //router.get('/item/:id', item_controller.item_detail);
 
     // GET request for list of all items.
-    //router.get('/items', item_controller.item_list);
+    router.get('/items', item_controller.item_list);
 
 
 /// CATEGORY ROUTES ///
