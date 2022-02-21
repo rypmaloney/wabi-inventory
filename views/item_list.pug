@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+
+  each item in item_list
+    div
+        a(href=item.url) #{item.name}
+        |  (#{item.category.name})
+
+  else
+      p There are no items.
