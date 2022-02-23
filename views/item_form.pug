@@ -5,14 +5,16 @@ block content
 
   form(method='POST' action='')
     div.form-group
-        label(for='name') Category Name:
+        label(for='name') Item Name:
         input#name.form-control(type='text', placeholder='' name='name' value=(undefined===category ? '' : category.name))
     div.form-group        
-        label(for='type') Category Type:
+        label(for='type') Category:
         select#name.form-control(name='type')
-            option(value="Bike") Bike
-            option(value="Component") Component
-            option(value="Accessory") Accessory
+            each category in category_list
+                option(value=category.name) #{category.name}
+
+            else
+                p There are no items.
     div.form-group
         label(for='description') Description:
         input#name.form-control(type='text', placeholder='Short description.' name='description' value=(undefined===category ? '' : category.description))

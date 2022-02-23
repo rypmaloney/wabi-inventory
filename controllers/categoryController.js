@@ -98,20 +98,20 @@ exports.category_create_post = [
       else {
         // Data from form is valid.
 
-        // Check if Genre with same name already exists.
+        // Check if CATEGORY with same name already exists.
         Category.findOne({ 'name': req.body.name })
           .exec( function(err, found_category) {
              if (err) { return next(err); }
   
              if (found_category) {
-               // Genre exists, redirect to its detail page.
+               // Category exists, redirect to its detail page.
                res.redirect(found_category.url);
              }
              else {
   
                category.save(function (err) {
                  if (err) { return next(err); }
-                 // Genre saved. Redirect to genre detail page.
+                 // Category saved. Redirect to category detail page.
                  res.redirect(category.url);
                });
   
