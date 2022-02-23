@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  div.itemDetail
+  div.detail
     h1=title 
-    p #{item.type} in #{item.category.name}
-    p=item.description
-    p=item.price
-    p Number in stock: #{item.stock}
+    p.biline #{item.type} in #{item.category.name}
+    p.description #{item.description}
+    div.stock-info
+      p.price $#{item.price}.00
+      p Number in stock: #{item.stock}
   
   

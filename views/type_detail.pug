@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  h1= title
+    div.list
+        h1= title
+        
 
-  each category in category_list
-    div
-        a(href=category.url) #{category.name}
+        each category in category_list
+            div.list-item
+                a(href=category.url) #{category.name}
 
 
-  else
-      p There are no items.
+        else
+            p There are no items.

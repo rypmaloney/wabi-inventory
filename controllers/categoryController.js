@@ -58,7 +58,7 @@ exports.type_category = function (req, res, next) {
             }
             //Successful, so render
             res.render("type_detail", {
-                title: `List of Categories in ${req.params.id}`,
+                title: `List of categories of type ${req.params.id}`,
                 category_list: list_categories,
             });
         });
@@ -68,8 +68,9 @@ exports.category_create_get = function (req, res, next) {
     res.render('category_form', { title: 'Create New Category' });
 };
 
-exports.category_create_post = [
 
+//Post function to create a new category
+exports.category_create_post = [
     // Validate and sanitize the name field.
     body('name', 'Category name required').trim().isLength({ min: 1 }).escape(),
     body('type').escape(),

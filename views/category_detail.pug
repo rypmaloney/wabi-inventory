@@ -3,14 +3,14 @@ extends layout
 block content
   div.detail
     h1=title 
-    p #{category.type}
-    p=category.description
+    p.biline #{category.type}
+    p.description #{category.description}
 
-    ul
+    div.list
         each item in items_in_category
-            li
+            div.list-item
                 a(href=item.url) #{item.name}
-                |  ($#{item.price}.00)
+                |  (#{item.stock} in stock)
 
         else
             p There are no items.
