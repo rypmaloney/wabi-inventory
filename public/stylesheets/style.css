@@ -177,6 +177,10 @@ select{
   padding: 10px;
   max-width: 30em;
 }
+input[type="number"]{
+  width: 10em;
+  margin-left: 20px;
+}
 
 
 
