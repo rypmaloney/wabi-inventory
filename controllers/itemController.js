@@ -130,3 +130,30 @@ exports.item_create_post = [
         }
     },
 ];
+
+
+//// Display item update form on GET.
+exports.item_update_get = function(req, res, next) {
+    async.parallel({
+        item: function(callback) {
+            Item.findById(req.params.id)
+                .populate('category')
+                .exec(callback);
+        },
+        categories: function(callback) {
+            Category.find(callback)
+        },
+    }, function(err, results) {
+        if (err) { return next(err); }
+        if (results.item==null) { // No results.
+            var err = new Error('Item not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.render("item_form_update",{title:"Update Item", category_list: results.categories, item:results.item })
+    });
+}
+
+
+//// Handle item update form on POST.
+

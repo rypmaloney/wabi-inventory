@@ -8,5 +8,9 @@ block content
     div.stock-info
       p.price $#{item.price}.00
       p Number in stock: #{item.stock}
-  
+    
+    div.add
+    form(action= `${item.url}/update`)
+        button.btn.btn-primary(type='submit') Update item
+
   

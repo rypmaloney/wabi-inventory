@@ -11,15 +11,15 @@ block content
         label(for='type') Type:
         br
         select#name.form-control(name='type' )
-            option(value="Bike" ) Bike
-            option(value="Component" ) Component
-            option(value="Accessory" ) Accessory
+            option(value="Bike" selected=(item.type==="Bike" ? 'selected' : false)) Bike
+            option(value="Component" selected=(item.type==="Component" ? 'selected' : false)) Component
+            option(value="Accessory" selected=(item.type==="Accessory" ? 'selected' : false)) Accessory
     div.form-group        
         label(for='category') Category:
         br
         select#name.form-control(name='category' )
             each category in category_list
-                option(value=category.id ) #{category.name}
+                option(value=category.id selected=(item.category.id===category.id ? 'selected' : false)) #{category.name}
 
             else
                 p There are no items.
