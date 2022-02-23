@@ -40,10 +40,10 @@ var category_controller = require('../controllers/categoryController');
 /// CATEGORY ROUTES ///
 
     // GET request for creating a category. NOTE This must come before route that displays Genre (uses id).
-    //router.get('/category/create', category_controller.category_create_get);
+    router.get('/category/create', category_controller.category_create_get);
 
-    //POST request for creating Gecategorynre.
-    //router.post('/category/create', gcategory_controller.category_create_post);
+    //POST request for creating category.
+    router.post('/category/create', category_controller.category_create_post);
 
     // GET request to delete category.
     //router.get('/category/:id/delete', category_controller.category_delete_get);

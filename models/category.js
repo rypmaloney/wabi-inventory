@@ -10,7 +10,6 @@ let CategorySchema = new Schema(
         type: {type: String, required: true, enum: ['Bike', 'Component', 'Accessory'], default: 'Component'},
     }
 )
-
 CategorySchema
 .virtual('url')
 .get(function () {
