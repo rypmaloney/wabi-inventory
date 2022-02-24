@@ -141,6 +141,14 @@ div.detail {
     max-width: 900px;
     margin: auto;
 }
+.controls{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  margin: 5px;
+}
 
 .stock-info {
     padding: 10px;
@@ -153,24 +161,30 @@ div.detail {
 
 /* List */
 
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
 .list-item {
     padding: 10px;
     background-color: rgb(243, 243, 243);
-    margin: 5px;
+    margin: 5px auto;
     border-radius: 2px;
     box-shadow: 1px 3px rgb(236, 236, 238);
+    min-width: 25em;
 }
 
-.add {
-    padding: 15px;
-}
+
 
 /* Button */
 .btn {
     padding: 7px;
     border: none;
-    margin: 4px;
     float: right;
+    margin: auto;
     font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light",
         "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }

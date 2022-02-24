@@ -134,6 +134,52 @@ exports.category_update_get = function(req, res, next) {
 }
 
 
+////Update Category on POST
+exports.category_update_post = [
+
+  body("name", "Name must not be empty.").isLength({ min: 1 }).escape(),
+  body("type", "type must not be empty.").isLength({ min: 1 }).escape(),
+  body("description", "Item description required")
+      .trim()
+      .isLength({ min: 1 })
+      .escape(),
+
+      (req, res, next) => {
+
+          // Extract the validation errors from a request.
+          const errors = validationResult(req);
+  
+          // Create a item object with escaped/trimmed data and old id.
+          var category = new Category(
+            { 
+              name: req.body.name,
+              type: req.body.type,
+              description: req.body.description,
+              _id:req.params.id 
+             });
+  
+             if (!errors.isEmpty()) {
+              // There are errors. Render form again with sanitized values/error messages.
+               //Successful, so render
+               res.render("category_form_update", {
+                title: "Update Category",
+                category: category,
+                errors: errors.array(),
+
+            });
+            return;
+          }
+          else {
+              // Data from form is valid. Update the record.
+              Category.findByIdAndUpdate(req.params.id, category, {}, function (err,thecategory) {
+                  if (err) { return next(err); }
+                     // Successful - redirect to the detail page
+                     res.redirect(thecategory.url);
+                  });
+          }
+      }
+  ];
+
 
 
 

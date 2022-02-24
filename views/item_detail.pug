@@ -8,9 +8,9 @@ block content
       p.price $#{item.price}.00
       p #{item.stock===0 ? 'OUT OF STOCK' : item.stock + ' in stock'}
     p.description #{item.description}
-    div.add
-    form(action= `${item.url}/update`)
-        button.btn.btn-primary(type='submit') Update item
-    form(action= `${item.url}/delete`)
-        button.btn.btn-primary(type='submit') Delete item
+    div.controls
+      form(action= `${item.url}/update`)
+          button.btn.btn-primary(type='submit') Update item
+      form(action= `${item.url}/delete`)
+          button.btn.btn-primary(type='submit') Delete item
   

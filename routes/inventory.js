@@ -55,7 +55,7 @@ var category_controller = require('../controllers/categoryController');
     router.get('/category/:id/update', category_controller.category_update_get);
 
     // POST request to update category.
-    //router.post('/category/:id/update', category_controller.category_update_post);
+    router.post('/category/:id/update', category_controller.category_update_post);
 
     // GET request for all the categories of a certain type
     router.get('/type/:id', category_controller.type_category);
