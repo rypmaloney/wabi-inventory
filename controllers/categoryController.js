@@ -89,7 +89,6 @@ exports.category_create_post = [
             description: req.body.description
         }
       );
-  
       if (!errors.isEmpty()) {
         // There are errors. Render the form again with sanitized values/error messages.
         res.render('category_form', { title: 'Create Category', category: category, errors: errors.array()});
@@ -97,7 +96,6 @@ exports.category_create_post = [
       }
       else {
         // Data from form is valid.
-
         // Check if CATEGORY with same name already exists.
         Category.findOne({ 'name': req.body.name })
           .exec( function(err, found_category) {
@@ -108,7 +106,6 @@ exports.category_create_post = [
                res.redirect(found_category.url);
              }
              else {
-  
                category.save(function (err) {
                  if (err) { return next(err); }
                  // Category saved. Redirect to category detail page.
@@ -122,6 +119,23 @@ exports.category_create_post = [
     }
   ];
   
+
+//// Display category update form on GET.
+exports.category_update_get = function(req, res, next) {
+  Category.findById(req.params.id)
+  .exec(function (err, results) {
+    if (err) {
+        return next(err);
+    }
+    //Successful, so render
+    res.render("category_form_update",{title:"Update Category", category: results })
+});
+
+}
+
+
+
+
 
 
 //UTILITY FUNCTION

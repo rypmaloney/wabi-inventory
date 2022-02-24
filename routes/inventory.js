@@ -52,7 +52,7 @@ var category_controller = require('../controllers/categoryController');
     //router.post('/category/:id/delete', category_controller.category_delete_post);
 
     // GET request to update category.
-    //router.get('/category/:id/update', category_controller.category_update_get);
+    router.get('/category/:id/update', category_controller.category_update_get);
 
     // POST request to update category.
     //router.post('/category/:id/update', category_controller.category_update_post);
