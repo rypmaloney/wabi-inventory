@@ -7,7 +7,7 @@ block content
       each item in item_list
         div.list-item
           a(href=item.url) #{item.name}
-          |  (#{item.category.name})
+          |  (#{item.stock===0 ? 'OUT OF STOCK' : item.stock + ' in stock'})
 
       else
         p There are no items.

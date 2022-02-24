@@ -13,6 +13,7 @@ exports.index = function (req, res) {
             category_count: function (callback) {
                 Category.countDocuments({}, callback);
             },
+            //add stock count here
         },
         function (err, results) {
             res.render("index", {
@@ -26,7 +27,7 @@ exports.index = function (req, res) {
 
 ////GET list all items
 exports.item_list = function (req, res, next) {
-    Item.find({}, "name description")
+    Item.find({}, "name stock")
         .sort({ name: 1 })
         .populate("category")
         .exec(function (err, list_items) {
