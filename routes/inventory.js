@@ -28,7 +28,7 @@ var category_controller = require('../controllers/categoryController');
     router.get('/item/:id/update', item_controller.item_update_get);
 
     // POST request to update item.
-    //router.post('/item/:id/update', item_controller.item_update_post);
+    router.post('/item/:id/update', item_controller.item_update_post);
 
     // GET request for one item.
     router.get('/item/:id', item_controller.item_detail);

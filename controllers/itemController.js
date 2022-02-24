@@ -156,4 +156,63 @@ exports.item_update_get = function(req, res, next) {
 
 
 //// Handle item update form on POST.
+exports.item_update_post = [
+
+    body("name", "Name must not be empty.").isLength({ min: 1 }).escape(),
+    body("category", "Category must not be empty.")
+        .isLength({ min: 1 })
+        .escape(),
+    body("type", "type must not be empty.").isLength({ min: 1 }).escape(),
+    body("price", "Price must not be empty.").isLength({ min: 1 }).escape(),
+    body("stock", "Stock must not be empty").isLength({ min: 1 }).escape(),
+    body("description", "Item description required")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+
+        (req, res, next) => {
+
+            // Extract the validation errors from a request.
+            const errors = validationResult(req);
+    
+            // Create a item object with escaped/trimmed data and old id.
+            var item = new Item(
+              { name: req.body.name,
+                category: req.body.category,
+                type: req.body.type,
+                price: req.body.price,
+                stock: req.body.stock,
+                description: req.body.description,
+                _id:req.params.id 
+               });
+    
+               if (!errors.isEmpty()) {
+                // There are errors. Render form again with sanitized values/error messages.
+                    Category.find({}, "name")
+                        .sort({ name: 1 })
+                        .exec(function (err, list_categories) {
+                            if (err) {
+                                return next(err);
+                            }
+                            //Successful, so render
+                            res.render("item_form", {
+                                title: "Create New Item",
+                                item: item,
+                                errors: errors.array(),
+                                category_list: list_categories,
+                            });
+                        });
+                    return;
+
+            }
+            else {
+                // Data from form is valid. Update the record.
+                Item.findByIdAndUpdate(req.params.id, item, {}, function (err,theitem) {
+                    if (err) { return next(err); }
+                       // Successful - redirect to item detail page
+                       res.redirect(theitem.url);
+                    });
+            }
+        }
+    ];
 
