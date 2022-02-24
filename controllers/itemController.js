@@ -216,3 +216,33 @@ exports.item_update_post = [
         }
     ];
 
+
+//Route to GET delete form 
+exports.item_delete_get = function(req, res, next) {
+
+    Item.findById(req.params.id)
+        .populate("category")
+        .exec(function (err, item) {
+            if (err) {
+                return next(err);
+            }
+        // Successful, so render.
+        res.render('item_delete', { title: `Delete ${item.name}`, item: item } );
+    });
+
+};
+
+
+//Route to POST delete form 
+exports.item_delete_post = function(req, res, next) {
+
+    Item.findByIdAndDelete(req.params.id)
+        .exec(function (err) {
+            if (err) {
+                return next(err);
+            }
+        // Successful, so render.
+        res.redirect('/inventory/items');
+    });
+
+};

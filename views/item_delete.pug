@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 #{title}
+    p Are you sure you want to delete this item?
+    form(method='POST' action='')
+        button.btn.btn-primary(type='submit') Yes, delete #{item.name}
