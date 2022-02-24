@@ -38,7 +38,7 @@ block content
     div.form-group
         label(for='description') Description:
         br
-        textarea#name.form-control(cols="30", rows="4" type='text', placeholder='Short description.' name='description') #{undefined===item ? '' : item.description}
+        textarea#name.form-control(cols="40", rows="4" type='text', placeholder='Short description.' name='description') #{undefined===item ? '' : item.description}
     button.btn.btn-primary(type='submit') Submit
 
   if errors
