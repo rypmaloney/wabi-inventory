@@ -3,4 +3,4 @@ This is a sample Express CRUD inventory application for [Wabi Cycles](https://wa
 
 The menu is responsive and mirrors the actual commerce site. 
 
-[Live Preiveiw](https://wab-inventory.herokuapp.com/inventory)
+[Live Preiveiw](https://wabi-inventory.herokuapp.com/inventory)
